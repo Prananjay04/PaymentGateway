@@ -9,6 +9,6 @@ public class PaymentGateway extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.PaymentGateway);
+        setContentView(R.layout.payment_gateway);
     }
 }
