@@ -28,7 +28,10 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
         make_payment = findViewById(R.id.make_payment);
 
         make_payment.setOnClickListener(view -> {
-            int payment_value = Integer.parseInt(String.valueOf(amount.getText()));
+
+            double payment_value = Math.round(Double.parseDouble(String.valueOf(amount.getText())));
+
+
             Log.d("From onclick id make_payment", "onClick: amount = " + payment_value);
 
 
@@ -36,12 +39,12 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
 
             checkout.setKeyID("rzp_test_GWNcjMx4YJOFy7");
 
-            checkout.setImage(R.drawable.rzp_logo);
+            checkout.setImage(R.drawable.ic_launcher_foreground);
 
             JSONObject jsonObject = new JSONObject();
 
             try {
-                jsonObject.put("name","MR. Pranajay Kandekar(RSS)");
+                jsonObject.put("name","MR.Pranajay Kandekar(RSS)");
 
                 jsonObject.put("description" , "Private Room Payment");
 
@@ -55,7 +58,12 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
 
                 jsonObject.put("prefill.email","pantya.is1.5@gmail.com");
 
-                checkout.open(PaymentGateway.this,jsonObject);
+                if (payment_value>=1 && payment_value <=1000000) {
+                    checkout.open(PaymentGateway.this, jsonObject);
+                }
+                else{
+                    Toast.makeText(this,"Invalid Amount ",Toast.LENGTH_LONG).show();
+                }
 
 
             }catch (JSONException e){
