@@ -44,9 +44,9 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
             JSONObject jsonObject = new JSONObject();
 
             try {
-                jsonObject.put("name","MR.Pranajay Kandekar(RSS)");
+                jsonObject.put("name","MR.Pranajay Kandekar");
 
-                jsonObject.put("description" , "Private Room Payment");
+                jsonObject.put("description" , "College Fees Payment");
 
                 jsonObject.put("theme.color","black");
 
@@ -54,9 +54,9 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
 
                 jsonObject.put("amount", payment_value*100);
 
-                jsonObject.put("prefill.contact","6969696969");
+                jsonObject.put("prefill.contact","7709628843");
 
-                jsonObject.put("prefill.email","pantya.is1.5@gmail.com");
+                jsonObject.put("prefill.email","prananjaykandekar12@gmail.com");
 
                 if (payment_value>=1 && payment_value <=1000000) {
                     checkout.open(PaymentGateway.this, jsonObject);
